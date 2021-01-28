@@ -8,7 +8,7 @@ export default class GeoReview {
   }
 
   async onInit() {
-    const coords = await this.callApi('coords');
+    const coords = await this.callAPI('coords');
 
     for (const item of coords) {
       for (let i = 0; i < item.total; i++) {
@@ -19,8 +19,8 @@ export default class GeoReview {
     document.body.addEventListener('click', this.onDocumentClick.bind(this));
   }
 
-  async callApi(method, body = {}) {
-    const res = await fetch(`/geo-review-3/${method}`, {
+  async callAPI(method, body = {}) {
+    const res = await fetch(`/map/${method}`, {
       method: 'post',
       body: JSON.stringify(body),
     });
@@ -37,12 +37,12 @@ export default class GeoReview {
     for (const item of reviews) {
       const div = document.createElement('div');
       div.classList.add('review-item');
-      div.innerHTML = `
-    <div>
-      <b>${item.name}</b> [${item.place}]
-    </div>
-    <div>${item.text}</div>
-    `;
+      div.innerHTML = ` 
+      <div>
+        <b>${item.name}</b> [${item.place}]
+      </div>
+      <div>${item.text}</div>
+      `;
       reviewList.appendChild(div);
     }
 
@@ -51,7 +51,7 @@ export default class GeoReview {
 
   async onClick(coords) {
     this.map.openBalloon(coords, 'Загрузка...');
-    const list = await this.callApi('list', { coords });
+    const list = await this.callAPI('list', { coords });
     const form = this.createForm(coords, list);
     this.map.setBalloonContent(form.innerHTML);
   }
@@ -63,14 +63,14 @@ export default class GeoReview {
       const data = {
         coords,
         review: {
-          name: document.querySelector('[data-role=review-name]').value,
-          place: document.querySelector('[data-role=review-place]').value,
-          text: document.querySelector('[data-role=review-text]').value,
+          name: document.querySelector('[data-role=review-name').value,
+          place: document.querySelector('[data-role=review-place').value,
+          text: document.querySelector('[data-role=review-text').value,
         },
       };
 
       try {
-        await this.callApi('add', data);
+        await this.callAPI('add', data);
         this.map.createPlacemark(coords);
         this.map.closeBalloon();
       } catch (e) {

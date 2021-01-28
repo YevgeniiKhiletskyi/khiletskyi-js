@@ -4,6 +4,7 @@ export default class InteractiveMap {
   constructor(mapId, onClick) {
     this.mapId = mapId;
     this.onClick = onClick;
+    this.ImageBitmapRenderingContext = document.getElementById('map');
   }
 
   async init() {
@@ -28,7 +29,7 @@ export default class InteractiveMap {
 
   initMap() {
     this.clusterer = new ymaps.Clusterer({
-      groupByCoordinates: true,
+      groupByCoordinates: false,
       clusterDisableClickZoom: true,
       clusterOpenBalloonOnClick: false,
     });
