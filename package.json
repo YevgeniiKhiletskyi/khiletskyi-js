@@ -12,7 +12,8 @@
     "watch": "webpack-dev-server --progress --colors",
     "start": "npm run watch",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "node:map": "node projects/gp1/server"
   },
   "author": "",
   "license": "MIT",
