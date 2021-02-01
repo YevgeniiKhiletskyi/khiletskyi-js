@@ -1,0 +1,115 @@
+<style>
+    html, body, #map {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+   
+    .review-list {
+        padding-bottom: 10px;
+        
+        margin-bottom: 6px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .ymaps-2-1-78-balloon-pane {
+        transform: translate3d(25px, 0, 0) scale(1, 1);
+    }
+
+    .ymaps-2-1-78-balloon {
+        padding: 2px;
+        background-color: red;
+        box-shadow: inset 0 0 0 1px rgb(0 0 0 / 15%), 0 5px 15px 8px rgb(0 0 0 / 50%);
+    }
+    
+    .ymaps-2-1-78-balloon__tail {
+        background: linear-gradient(45deg, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 50%);
+        box-shadow: inset 0 0 1px -2px rgba(0 0 0 /15%), 3px -3px 13px 1px rgba(0 0 0 /20%);
+    }
+
+    .ymaps-2-1-78-balloon__tail::after {
+        background-color: red;
+    }
+    
+    .ymaps-2-1-78-balloon__layout {
+        background: cornflowerblue;
+    }
+
+    .ymaps-2-1-78-balloon__close {
+        background: red;
+    }
+
+    .ymaps-2-1-78-balloon__content {
+        background: cornflowerblue;
+        padding: 30px 30px;
+    }
+
+    .form {
+        width: 300px;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .form .field {
+        flex: 1;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form .field input,
+    .form .field textarea {
+        width: 100%;
+        box-sizing: border-box;
+      
+    }
+
+    .form .field textarea {
+        resize: none;
+    }
+
+    .form .form-error {
+        color: red;
+    }
+    
+    .form .review-list {
+        max-height: 500px;
+        overflow: scroll;
+    }
+
+    .btn {
+      margin-left: 38%;
+    }
+
+</style>
+
+<div id="map"></div>
+<script type="template" id="addFormTemplate">
+    <div class="title">
+        <h3>Отзывы:</h3>
+    </div>
+    <div class="review-list"></div>
+    <div class="form" data-role="review-form">
+        
+        <div class="field">
+            <input data-role="review-name" type="text" placeholder="Имя">
+        </div>
+        <div class="field">
+            <input data-role="review-place" type="text" placeholder="Место">
+        </div>
+        <div class="field">
+            <textarea data-role="review-text" placeholder="Коментарий" rows="5"></textarea>
+        </div>
+        <button class="btn" data-role="review-add">Добавить</button>
+        <span class="form-error"></span>
+    </div>
+</script>    
+
+
+
+
