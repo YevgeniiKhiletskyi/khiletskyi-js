@@ -8,12 +8,11 @@
     "codestyle:fix": "eslint projects --fix",
     "travis": "npm run codestyle && npm test",
     "build": "webpack --progress --colors",
-    "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
+    "build:prod": "NODE_ENV=production webpack --progress --colors",
     "watch": "webpack-dev-server --progress --colors",
     "start": "npm run watch",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "node:map": "node projects/gp1/server"
+    "test:coverage": "jest --coverage"
   },
   "author": "",
   "license": "MIT",
@@ -53,8 +52,5 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }
